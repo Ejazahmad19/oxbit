@@ -5,6 +5,7 @@ import Image from "next/image";
 import { usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Container from './container';
+import { motion } from 'framer-motion';
 
 const links = [
   { label: 'Home', href: '/' },
@@ -27,7 +28,11 @@ export default function Header() {
   }, [menuOpen])
   return (
 
-    <header className='w-full fixed top-0 left-0 z-50 border-b border-[var(--md-sys-color-outline-variant)] backdrop-blur-md'>
+    <motion.header
+      initial={{ opacity: 0, y: -32 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.75, ease: 'easeOut' as const }}
+      className='w-full fixed top-0 left-0 z-50 border-b border-[var(--md-sys-color-outline-variant)] backdrop-blur-lg'>
 
       {/* CUSTOM CONTAINER */}
       <Container className='py-4 flex items-center justify-between'>
@@ -66,10 +71,10 @@ export default function Header() {
           {/* CONTACT BUTTON - HIDDEN ON MOBILE */}
           <Link
             href='/contact'
-            className={`hidden sm:flex px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-102 hover:brightness-105 active:scale-95 items-center gap-2 font-medium text-sm
+            className={`hidden sm:flex px-6 py-3 rounded-full shadow-lg transition-all duration-300 items-center gap-2 font-medium text-sm
               ${pathname === '/contact'
-                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)]'
-                : 'bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)]'
+                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)] opacity-60 pointer-events-none'
+                : 'bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)] hover:scale-102 hover:brightness-105 active:scale-95'
               }`}>
             <span className='material-symbols-outlined text-[18px]' style={{ fontVariationSettings: '"FILL" 1' }}>call</span>
             Contact Us
@@ -117,7 +122,7 @@ export default function Header() {
             href='/contact'
             className={`mt-2 sm:hidden px-6 py-3 rounded-full text-center font-medium text-sm
               ${pathname === '/contact'
-                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)]'
+                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)] opacity-60 pointer-events-none'
                 : 'bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)]'
               }`}>
             Contact Us
@@ -126,6 +131,6 @@ export default function Header() {
 
       </div>
 
-    </header>
+    </motion.header>
   )
 }

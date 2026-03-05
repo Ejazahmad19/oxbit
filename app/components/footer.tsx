@@ -1,7 +1,10 @@
+'use client'
+
 import Image from "next/image"
 import Container from "./container"
 import Link from "next/link"
 import { FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaWhatsapp, FaXTwitter, FaYoutube } from "react-icons/fa6"
+import { motion } from "framer-motion"
 
 const company = [
     { label: 'About Us', href: '/about' },
@@ -28,7 +31,12 @@ const socials = [
 
 export default function Footer() {
     return (
-        <footer className="border-t border-[var(--md-sys-color-outline-variant)]">
+        <motion.footer
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.75, ease: 'easeOut' as const }}
+            className="border-t border-[var(--md-sys-color-outline-variant)]">
             <Container className='py-4 sm:py-8 lg:py-16'>
 
                 {/* 4 COLUMNS */}
@@ -88,8 +96,8 @@ export default function Footer() {
                             <input
                                 type='email'
                                 placeholder='your@email.com'
-                                className='flex-1 min-w-0 px-4 py-2.5 rounded-full text-sm bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface)] placeholder:text-[var(--md-sys-color-on-surface-variant)] border border-[var(--md-sys-color-outline-variant)] focus:outline-none focus:border-[var(--md-sys-color-secondary)] transition-colors duration-300' />
-                            <button className='w-12 h-12 flex items-center justify-center bg-[var(--md-sys-color-secondary)] text-[var(--md-sys-color-on-secondary)] rounded-full hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-300 shrink-0'>
+                                className='flex-1 min-w-0 px-4 py-2.5 rounded-full shadow-lg text-sm bg-[var(--md-sys-color-surface-variant)] text-[var(--md-sys-color-on-surface)] placeholder:text-[var(--md-sys-color-on-surface-variant)] border border-[var(--md-sys-color-outline-variant)] focus:outline-none focus:border-[var(--md-sys-color-secondary)] transition-colors duration-300' />
+                            <button className='w-12 h-12 flex items-center justify-center bg-[var(--md-sys-color-secondary)] text-[var(--md-sys-color-on-secondary)] rounded-full shadow-lg hover:scale-105 hover:brightness-110 active:scale-95 transition-all duration-300 shrink-0'>
                                 <span className='material-symbols-outlined text-[20px]' style={{ fontVariationSettings: '"FILL" 1' }}>send</span>
                             </button>
                         </div>
@@ -113,13 +121,13 @@ export default function Footer() {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={label}
-                                className='w-10 h-10 rounded-full flex items-center justify-center bg-[var(--md-sys-color-surface-variant)] hover:bg-[var(--md-sys-color-tertiary)] hover:text-[var(--md-sys-color-on-tertiary)] hover:-translate-y-1 text-[var(--md-sys-color-on-surface-variant)] transition-all duration-300'>
+                                className='w-10 h-10 rounded-full shadow-lg flex items-center justify-center bg-[var(--md-sys-color-surface-variant)] hover:bg-[var(--md-sys-color-tertiary)] hover:text-[var(--md-sys-color-on-tertiary)] hover:-translate-y-1 text-[var(--md-sys-color-on-surface-variant)] transition-all duration-300'>
                                 <Icon size={16} />
                             </a>
                         ))}
                     </div>
                 </div>
             </Container>
-        </footer >
+        </motion.footer >
     )
 }

@@ -1,11 +1,11 @@
+import Hero from "./components/hero";
+import Pricing from "./components/pricing";
+
 export default function Home() {
   return (
-    <main id = "main" className="min-h-screen flex items-center justify-center gap-6 bg-[var(--md-sys-color-background)] text-[var(--md-sys-color-on-background)]">
-
-      <h1 className="text-4xl font-bold text-[var(--md-sys-color-primary)]">
-        Oxbit is coming soon!
-      </h1>
-
+    <main className='bg-[var(--md-sys-color-background)] text-[var(--md-sys-color-on-background)] flex flex-col gap-12 sm:gap-12 md:gap-16 lg:gap-20 pt-30 pb-12 sm:pb-12 md:pb-16 lg:pb-20'>
+      <Hero />
+      <Pricing />
     </main>
   );
 }
