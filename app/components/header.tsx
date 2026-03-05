@@ -66,7 +66,11 @@ export default function Header() {
           {/* CONTACT BUTTON - HIDDEN ON MOBILE */}
           <Link
             href='/contact'
-            className='hidden sm:flex px-6 py-3 bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)] rounded-full shadow-lg transition-all duration-300 hover:scale-102 hover:brightness-105 active:scale-95 items-center gap-2 font-medium text-sm'>
+            className={`hidden sm:flex px-6 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-102 hover:brightness-105 active:scale-95 items-center gap-2 font-medium text-sm
+              ${pathname === '/contact'
+                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)]'
+                : 'bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)]'
+              }`}>
             <span className='material-symbols-outlined text-[18px]' style={{ fontVariationSettings: '"FILL" 1' }}>call</span>
             Contact Us
           </Link>
@@ -111,7 +115,11 @@ export default function Header() {
           {/* CONTACT BUTTON INSIDE MOBILE MENU */}
           <Link
             href='/contact'
-            className='mt-2 sm:hidden px-6 py-3 bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)] rounded-full text-center font-medium text-sm'>
+            className={`mt-2 sm:hidden px-6 py-3 rounded-full text-center font-medium text-sm
+              ${pathname === '/contact'
+                ? 'bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-primary)]'
+                : 'bg-[var(--md-sys-color-primary)] text-[var(--md-sys-color-on-primary)]'
+              }`}>
             Contact Us
           </Link>
         </Container>
