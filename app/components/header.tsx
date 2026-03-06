@@ -22,10 +22,6 @@ export default function Header() {
 
   useEffect(() => { setMenuOpen(false) }, [pathname])
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? 'hidden' : ''
-    return () => { document.body.style.overflow = '' }
-  }, [menuOpen])
   return (
 
     <motion.header

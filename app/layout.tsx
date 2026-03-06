@@ -12,8 +12,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Oxbit - Coming Soon",
-  description: "Oxbit is coming soon!",
+  title: "Oxbit Software",
+  description: "Oxbit - Building Apps that Matter",
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",

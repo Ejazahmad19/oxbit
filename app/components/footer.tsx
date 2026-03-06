@@ -105,7 +105,7 @@ export default function Footer() {
                 </div>
 
                 {/* BOTTOM BAR */}
-                <div className='mt-12 pt-6 border-t border-[var(--md-sys-color-outline-variant)] flex flex-col sm:flex-row items-center justify-between gap-4'>
+                <div className='mt-6 pt-6 border-t border-[var(--md-sys-color-outline-variant)] flex flex-col sm:flex-row items-center justify-between gap-4'>
 
                     {/* COPYRIGHT */}
                     <p className='text-xs text-[var(--md-sys-color-on-surface-variant)]'>

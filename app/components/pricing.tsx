@@ -7,35 +7,48 @@ import { fadeUp } from "../lib/animations"
 const plans = [
     {
         title: 'Mobile Apps',
-        price: '$339',
+        price: '$359',
         description: 'Native iOS and Android excellence.',
         features: [
             'iOS & Android Development',
             'App Store Deployment',
             'Push Notifications',
             'API Integration',
-        ],
-    },
-    {
-        title: 'Websites',
-        price: '$259',
-        description: 'Beautiful, fast landing pages and sites.',
-        features: [
-            'Responsive Design',
-            'CMS Integration',
-            'SEO Optimization',
+            'Custom UI/UX Design',
+            'Unlimited Revisions',
+            '24/7 Support',
             'Performance Tuning',
+            'And More!'
         ],
     },
     {
         title: 'Web Apps',
-        price: '$299',
+        price: '$329',
         description: 'Scalable modern web experiences.',
         features: [
             'Full-stack Development',
             'Authentication & Auth',
             'Database Design',
             'API Development',
+            'Custom UI/UX Design',
+            'Unlimited Revisions',
+            '24/7 Support',
+            'And More!'
+        ],
+    },
+    {
+        title: 'Websites',
+        price: '$299',
+        description: 'Beautiful, fast landing pages and sites.',
+        features: [
+            'Responsive Design',
+            'CMS Integration',
+            'SEO Optimization',
+            'Performance Tuning',
+            'Custom UI/UX Design',
+            'Unlimited Revisions',
+            '24/7 Support',
+            'And More!'
         ],
     },
     {
@@ -46,7 +59,10 @@ const plans = [
             'Cross-platform OS Support',
             'Performance Tuning',
             'Offline Functionality',
-            'Auto Updates',
+            'Custom UI/UX Design',
+            'Unlimited Revisions',
+            '24/7 Support',
+            'And More!'
         ],
     },
 ]
