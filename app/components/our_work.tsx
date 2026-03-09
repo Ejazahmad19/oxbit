@@ -4,47 +4,18 @@ import { motion } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
 import { fadeUp } from '../lib/animations'
-
-const projects = [
-  {
-    title: 'Nova Finance Platform',
-    description: 'A comprehensive wealth management suite handling over $2B in monthly transactions with real-time analytics.',
-    image: 'https://plus.unsplash.com/premium_photo-1753093847143-379f076c1400?w=800',
-    tags: ['FINTECH', 'WEB APP'],
-    span: 'lg:col-span-2',
-  },
-  {
-    title: 'Pulse Fitness Tracker',
-    description: 'Precision health monitoring app for elite athletes.',
-    image: 'https://images.unsplash.com/photo-1660808043575-7b11d477c337?w=800',
-    tags: ['HEALTH', 'iOS'],
-    span: 'lg:col-span-1',
-  },
-  {
-    title: 'Vertex Cloud Suite',
-    description: 'Next-gen infrastructure management for devops teams.',
-    image: 'https://images.unsplash.com/photo-1649877508777-1554357604eb?w=800',
-    tags: ['SAAS', 'UX'],
-    span: 'lg:col-span-1',
-  },
-  {
-    title: 'Orbit Design System',
-    description: 'A comprehensive design system used across 12 products.',
-    image: 'https://images.unsplash.com/photo-1761123044903-1671e0edc3f6?w=800',
-    tags: ['DESIGN', 'WEB'],
-    span: 'lg:col-span-2',
-  },
-]
-
-// Returns the order of projects starting from offset
-function getOrder(offset: number) {
-  return [0, 1, 2, 3].map(i => (i + offset) % 4)
-}
+import { projects } from '../lib/projects'
 
 export default function OurWork() {
   return (
     <section>
-      <div className='mx-auto max-w-7xl px-4 sm:px-8 lg:px-12'>
+      <motion.div
+        custom={0}
+        variants={fadeUp}
+        initial='hidden'
+        whileInView='visible'
+        viewport={{ once: true }}
+        className='mx-auto max-w-7xl px-4 sm:px-8 lg:px-12'>
 
         {/* HEADER */}
         <motion.div
@@ -65,57 +36,107 @@ export default function OurWork() {
         </motion.div>
 
         {/* GRID */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {projects.map((project, i) => (
-            <motion.div
-              key={project.title}
-              custom={i}
-              variants={fadeUp}
-              initial='hidden'
-              whileInView='visible'
-              viewport={{ once: true }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className={`${project.span} flex flex-col rounded-4xl overflow-hidden bg-[var(--md-sys-color-surface-container-lowest)] shadow-lg`}>
+        <div className='grid gap-4 lg:grid-cols-3 lg:grid-rows-2'>
 
-              {/* IMAGE */}
-              <div className='relative w-full h-48 sm:h-75'>
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  fill
-                  className='object-cover' />
-              </div>
-
-              {/* CONTENT */}
-              <div className='flex flex-col gap-3 p-5'>
-
-                {/* TAGS */}
-                <div className='flex items-center gap-2 flex-wrap'>
-                  {project.tags.map(tag => (
-                    <span
-                      key={tag}
-                      className='px-4 py-2 rounded-full shadow-sm text-[10px] font-semibold tracking-wider bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>
-                      {tag}
-                    </span>
-                  ))}
+          {/* CARD 0 — tall left, spans 2 rows */}
+          {projects[0] && (
+            <Link href={`/work/${projects[0].slug}`} className='relative lg:row-span-2'>
+              <motion.div
+                whileHover={{ scale: 0.97 }}
+                transition={{ duration: 0.2 }}
+                custom={0}
+                className='relative flex h-full flex-col overflow-hidden rounded-[calc(2rem+1px)] shadow-md'>
+                <div className='relative w-full flex-1 min-h-64'>
+                  <Image src={projects[0].image} alt={projects[0].title} fill className='object-cover' />
                 </div>
+                <div className='flex flex-col gap-2 p-6'>
+                  <div className='flex gap-2 flex-wrap'>
+                    {projects[0].tags.map(tag => (
+                      <span key={tag} className='px-3 py-1 rounded-full text-[10px] font-semibold bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className='text-base font-bold text-[var(--md-sys-color-on-surface)]'>{projects[0].title}</h3>
+                  <p className='text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed'>{projects[0].description}</p>
+                </div>
+              </motion.div>
+            </Link>
+          )}
 
-                {/* TITLE */}
-                <h3 className='text-base font-bold text-[var(--md-sys-color-on-surface)]'>
-                  {project.title}
-                </h3>
+          {/* CARD 1 — top middle */}
+          {projects[1] && (
+            <Link href={`/work/${projects[1].slug}`} className='relative max-lg:row-start-1'>
+              <motion.div
+                whileHover={{ scale: 0.97 }}
+                transition={{ duration: 0.2 }}
+                custom={1}
+                className='relative flex h-full flex-col overflow-hidden rounded-[calc(2rem+1px)] shadow-md'>
+                <div className='relative w-full flex-1 min-h-48'>
+                  <Image src={projects[1].image} alt={projects[1].title} fill className='object-cover' />
+                </div>
+                <div className='flex flex-col gap-2 p-6'>
+                  <div className='flex gap-2 flex-wrap'>
+                    {projects[1].tags.map(tag => (
+                      <span key={tag} className='px-3 py-1 rounded-full text-[10px] font-semibold bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className='text-base font-bold text-[var(--md-sys-color-on-surface)]'>{projects[1].title}</h3>
+                  <p className='text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed line-clamp-2'>{projects[1].description}</p>
+                </div>
+              </motion.div>
+            </Link>
+          )}
 
-                {/* DESCRIPTION */}
-                <p className='text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed'>
-                  {project.description}
-                </p>
+          {/* CARD 2 — top right, spans 2 rows */}
+          {projects[2] && (
+            <Link href={`/work/${projects[2].slug}`} className='relative lg:row-span-2'>
+              <motion.div
+                whileHover={{ scale: 0.97 }}
+                transition={{ duration: 0.2 }}
+                custom={2}
+                className='relative flex h-full flex-col overflow-hidden rounded-[calc(2rem+1px)] shadow-md'>
+                <div className='relative w-full flex-1 min-h-64'>
+                  <Image src={projects[2].image} alt={projects[2].title} fill className='object-cover' />
+                </div>
+                <div className='flex flex-col gap-2 p-6'>
+                  <div className='flex gap-2 flex-wrap'>
+                    {projects[2].tags.map(tag => (
+                      <span key={tag} className='px-3 py-1 rounded-full text-[10px] font-semibold bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className='text-base font-bold text-[var(--md-sys-color-on-surface)]'>{projects[2].title}</h3>
+                  <p className='text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed'>{projects[2].description}</p>
+                </div>
+              </motion.div>
+            </Link>
+          )}
 
-              </div>
-            </motion.div>
-          ))}
+          {/* CARD 3 — bottom middle */}
+          {projects[3] && (
+            <Link href={`/work/${projects[3].slug}`} className='relative lg:col-start-2 lg:row-start-2'>
+              <motion.div
+                whileHover={{ scale: 0.97 }}
+                transition={{ duration: 0.2 }}
+                custom={3}
+                className='relative flex h-full flex-col overflow-hidden rounded-[calc(2rem+1px)] shadow-md'>
+                <div className='relative w-full flex-1 min-h-48'>
+                  <Image src={projects[3].image} alt={projects[3].title} fill className='object-cover' />
+                </div>
+                <div className='flex flex-col gap-2 p-6'>
+                  <div className='flex gap-2 flex-wrap'>
+                    {projects[3].tags.map(tag => (
+                      <span key={tag} className='px-3 py-1 rounded-full text-[10px] font-semibold bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>{tag}</span>
+                    ))}
+                  </div>
+                  <h3 className='text-base font-bold text-[var(--md-sys-color-on-surface)]'>{projects[3].title}</h3>
+                  <p className='text-sm text-[var(--md-sys-color-on-surface-variant)] leading-relaxed line-clamp-2'>{projects[3].description}</p>
+                </div>
+              </motion.div>
+            </Link>
+          )}
+
         </div>
 
-      </div>
+      </motion.div>
     </section>
   )
 }

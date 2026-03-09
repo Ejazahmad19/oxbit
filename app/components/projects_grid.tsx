@@ -20,12 +20,12 @@ export default function ProjectsGrid() {
                     viewport={{ once: true }}
                     className='flex flex-col gap-4 mb-12'>
                     <h1 className='text-4xl sm:text-5xl font-bold text-[var(--md-sys-color-on-background)]'>
-                        What We{' '}
-                        <span className='text-[var(--md-sys-color-primary)]'>Build</span>
+                        Our Recent{' '}
+                        <span className='text-[var(--md-sys-color-primary)]'>Works</span>
                     </h1>
 
                     <p className='text-md text-[var(--md-sys-color-on-surface-variant)] max-w-lg leading-relaxed'>
-                        End to end software for every platform. We turn complex ideas into high-performance digital products.
+                        We have worked with startups, enterprises, and everything in between. Our team is passionate about building products that make a difference.
                     </p>
                 </motion.div>
 
@@ -71,7 +71,7 @@ export default function ProjectsGrid() {
                                     </h3>
 
                                     {/* DESCRIPTION */}
-                                    <p className='text-md text-[var(--md-sys-color-on-surface-variant)] leading-relaxed'>
+                                    <p className='text-md text-[var(--md-sys-color-on-surface-variant)] leading-relaxed line-clamp-2 min-h-[3rem]'>
                                         {project.description}
                                     </p>
 
