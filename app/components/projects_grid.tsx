@@ -9,25 +9,25 @@ import Link from 'next/link'
 export default function ProjectsGrid() {
     return (
         <section>
-            <div className='mx-auto max-7-xl px-4 sm:px-16 lg:px-24'>
+
+            <motion.div
+                custom={0}
+                variants={fadeUp}
+                initial='hidden'
+                whileInView='visible'
+                viewport={{ once: true }}
+                className='mx-auto max-w-7xl px-4 sm:px-8 lg:px-12'>
 
                 {/* HEADER */}
-                <motion.div
-                    custom={0}
-                    variants={fadeUp}
-                    initial='hidden'
-                    whileInView='visible'
-                    viewport={{ once: true }}
-                    className='flex flex-col gap-4 mb-12'>
+                <div className='flex flex-col gap-4 mb-12'>
                     <h1 className='text-4xl sm:text-5xl font-bold text-[var(--md-sys-color-on-background)]'>
                         Our Recent{' '}
                         <span className='text-[var(--md-sys-color-primary)]'>Works</span>
                     </h1>
-
                     <p className='text-md text-[var(--md-sys-color-on-surface-variant)] max-w-lg leading-relaxed'>
                         We have worked with startups, enterprises, and everything in between. Our team is passionate about building products that make a difference.
                     </p>
-                </motion.div>
+                </div>
 
                 {/* GRID */}
                 <div className='grid grid-cols-1 lg:grid-cols-2 gap-6'>
@@ -80,7 +80,7 @@ export default function ProjectsGrid() {
                         </Link>
                     ))}
                 </div>
-            </div>
+            </motion.div>
         </section>
     )
 }
