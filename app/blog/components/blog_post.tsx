@@ -10,51 +10,54 @@ type Blog = typeof blogs[0]
 
 export default function BlogPost({ blog, related }: { blog: Blog, related: Blog[] }) {
   return (
-    <div className='mx-auto max-w-5xl px-4 sm:px-8 lg:px-12 w-full flex flex-col gap-12'>
+    <div className='w-full flex flex-col gap-12'>
 
-      {/* LABEL + TITLE + META */}
-      <motion.div
-        custom={0}
-        variants={fadeUp}
-        initial='hidden'
-        animate='visible'
-        className='flex flex-col gap-4 items-center text-center'>
-        <span className='px-4 py-2 rounded-full shadow-sm text-[12px] font-bold tracking-wider bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>
-          {blog.label}
-        </span>
-        <h1 className='text-3xl sm:text-5xl font-bold text-[var(--md-sys-color-on-background)] leading-tight'>
-          {blog.title}
-        </h1>
-        <div className='flex items-center gap-3'>
-          <div className='relative w-10 h-10 rounded-full overflow-hidden'>
-            <Image src={blog.author.image} alt={blog.author.name} fill className='object-cover' />
+      <div className='mx-auto max-w-5xl px-4 sm:px-8 lg:px-12 w-full flex flex-col gap-12'>
+        
+        {/* LABEL + TITLE + META */}
+        <motion.div
+          custom={0}
+          variants={fadeUp}
+          initial='hidden'
+          animate='visible'
+          className='flex flex-col gap-4 items-center text-center'>
+          <span className='px-4 py-2 rounded-full shadow-sm text-[12px] font-bold tracking-wider bg-[var(--md-sys-color-primary-container)] text-[var(--md-sys-color-on-primary-container)]'>
+            {blog.label}
+          </span>
+          <h1 className='text-3xl sm:text-5xl font-bold text-[var(--md-sys-color-on-background)] leading-tight'>
+            {blog.title}
+          </h1>
+          <div className='flex items-center gap-3'>
+            <div className='relative w-10 h-10 rounded-full overflow-hidden'>
+              <Image src={blog.author.image} alt={blog.author.name} fill className='object-cover' />
+            </div>
+            <span className='text-sm font-medium text-[var(--md-sys-color-on-surface)]'>{blog.author.name}</span>
+            <span className='text-[var(--md-sys-color-outline-variant)]'>•</span>
+            <span className='text-sm text-[var(--md-sys-color-on-surface-variant)]'>{blog.date}</span>
+            <span className='text-[var(--md-sys-color-outline-variant)]'>•</span>
+            <span className='text-sm text-[var(--md-sys-color-on-surface-variant)]'>{blog.readTime}</span>
           </div>
-          <span className='text-sm font-medium text-[var(--md-sys-color-on-surface)]'>{blog.author.name}</span>
-          <span className='text-[var(--md-sys-color-outline-variant)]'>•</span>
-          <span className='text-sm text-[var(--md-sys-color-on-surface-variant)]'>{blog.date}</span>
-          <span className='text-[var(--md-sys-color-outline-variant)]'>•</span>
-          <span className='text-sm text-[var(--md-sys-color-on-surface-variant)]'>{blog.readTime}</span>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* HERO IMAGE */}
-      <motion.div
-        custom={1}
-        variants={fadeUp}
-        initial='hidden'
-        animate='visible'
-        className='relative w-full h-64 sm:h-96 rounded-4xl shadow-lg overflow-hidden'>
-        <Image src={blog.image} alt={blog.title} fill className='object-cover' />
-      </motion.div>
+        {/* HERO IMAGE */}
+        <motion.div
+          custom={1}
+          variants={fadeUp}
+          initial='hidden'
+          animate='visible'
+          className='relative w-full h-64 sm:h-96 rounded-4xl shadow-lg overflow-hidden'>
+          <Image src={blog.image} alt={blog.title} fill className='object-cover' />
+        </motion.div>
 
-      {/* CONTENT */}
-      <motion.div
-        custom={2}
-        variants={fadeUp}
-        initial='hidden'
-        animate='visible'>
-        <BlogContent content={blog.content} />
-      </motion.div>
+        {/* CONTENT */}
+        <motion.div
+          custom={2}
+          variants={fadeUp}
+          initial='hidden'
+          animate='visible'>
+          <BlogContent content={blog.content} />
+        </motion.div>
+      </div>
 
       {/* MORE POSTS */}
       {related.length > 0 && (
@@ -64,7 +67,7 @@ export default function BlogPost({ blog, related }: { blog: Blog, related: Blog[
           initial='hidden'
           whileInView='visible'
           viewport={{ once: true }}
-          className='flex flex-col gap-6'>
+          className='mx-auto max-w-7xl px-4 sm:px-8 lg:px-12 w-full flex flex-col gap-6'>
           <div className='flex items-center justify-between'>
             <h2 className='text-2xl font-bold text-[var(--md-sys-color-on-background)]'>More Posts</h2>
             <Link

@@ -28,7 +28,7 @@ export default function Header() {
       initial={{ opacity: 0, y: -32 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.75, ease: 'easeOut' as const }}
-      className='w-full fixed top-0 left-0 z-50 border-b border-[var(--md-sys-color-outline-variant)] backdrop-blur-lg'>
+      className='w-full fixed top-0 left-0 z-50 border-b border-[var(--md-sys-color-outline-variant)] backdrop-blur-lg bg-[var(--md-sys-color-surface-container-lowest)]/5'>
 
       {/* CUSTOM CONTAINER */}
       <Container className='py-4 flex items-center justify-between'>

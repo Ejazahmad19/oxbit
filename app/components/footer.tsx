@@ -36,7 +36,7 @@ export default function Footer() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.75, ease: 'easeOut' as const }}
-            className="border-t border-[var(--md-sys-color-outline-variant)]">
+            className="border-t border-[var(--md-sys-color-outline-variant)] backdrop-blur-lg bg-[var(--md-sys-color-surface-container-lowest)]/5">
             <Container className='py-4 sm:py-8 lg:py-16'>
 
                 {/* 4 COLUMNS */}
